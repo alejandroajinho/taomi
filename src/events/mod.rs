@@ -3,7 +3,7 @@ use tokio::sync::Mutex;
 use twilight_gateway::{Event, Shard};
 use twilight_http::Client;
 
-pub async fn handler(client: Arc<Client>, shard: Arc<Mutex<Shard>>, event: Event) -> std::io::Result<()> {
+pub async fn handler(client: Arc<Client>, shard: Arc<Mutex<Shard>>, event: Event) {
   match event {
     Event::Ready(_) => {}
     Event::GuildCreate(guild) => {
@@ -12,6 +12,4 @@ pub async fn handler(client: Arc<Client>, shard: Arc<Mutex<Shard>>, event: Event
     }
     _ => {}
   }
-
-  Ok(())
 }
